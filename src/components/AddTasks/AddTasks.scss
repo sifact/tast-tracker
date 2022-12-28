@@ -1,0 +1,46 @@
+.section-title {
+    margin-bottom: 2rem;
+}
+
+.form-wrapper {
+    display: flex;
+
+    justify-content: center;
+    height: calc(100vh - 148px);
+}
+
+.add-form {
+    width: 400px;
+}
+
+.form-input {
+    width: 100%;
+
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: var(--container-color);
+    color: var(--text-color-dark);
+    outline: none;
+    // border: none;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 17px;
+    font-family: "Exo 2", sans-serif;
+}
+
+.textarea {
+    resize: none;
+}
+
+.btn {
+    padding: 0.7rem 1.2rem;
+    color: var(--text-color-dark);
+    background: var(--tertiary);
+    border-radius: 0.5rem;
+    border: none;
+    font-family: "Exo 2", sans-serif;
+    font-size: 18px;
+}
+.btn:hover {
+    background: var(--tertiary-lite);
+}
