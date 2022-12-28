@@ -16,8 +16,10 @@ html {
     --title-color: hsl(var(--hue), var(--sat), 20%);
     --title-color-dark: hsl(var(--hue), var(--sat), 0%);
     --text-color: hsl(var(--hue), var(--sat), 46%);
-    --container-color: hsl(var(--hue), var(--sat), 98%);
-    --body-color: #fff;
+    // --container-color: hsl(var(--hue), var(--sat), 98%);
+    --container-color: rgb(255, 255, 255);
+    --body-color: #f6f8f9;
+    // --primary-lite: hsl(var(--hue), var(--sat), 98%);
 }
 
 [data-theme="dark"] {
@@ -49,6 +51,7 @@ body {
     // background: $info;
     // color: white;
     min-height: 100vh;
+    background-color: var(--body-color);
 }
 
 .container {

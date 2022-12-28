@@ -1,0 +1,63 @@
+.register {
+    height: calc(100vh - 148px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-wrapper-input {
+    width: 400px;
+    background: var(--container-color);
+    padding: 2rem 1.5rem;
+    height: 400px;
+    border-radius: 3px;
+    box-shadow: rgb(169 174 183 / 50%) 0px 1px 2px 0px;
+}
+
+.register-form {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+.register-input {
+    width: 100%;
+    padding: 0.87rem;
+    background: var(--body-color);
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    margin-bottom: 0.87rem;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    font-family: "Exo 2", sans-serif;
+    font-size: 16px;
+}
+
+hr.solid {
+    margin: 2rem 0;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+.hr-text {
+    position: absolute;
+    top: 10.5rem;
+    left: 10rem;
+    z-index: 10;
+}
+.btn-login {
+    width: 100%;
+    border-radius: 2px;
+}
+
+.google-icon {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.signup-link {
+    margin-top: 1rem;
+}

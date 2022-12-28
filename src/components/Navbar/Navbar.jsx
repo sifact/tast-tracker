@@ -44,6 +44,8 @@ const Navbar = ({ switchTheme, theme }) => {
                             />
                         )}{" "}
                     </NavLink>
+                    <NavLink to="/login">Log in</NavLink>
+                    <NavLink to="/register">Sign up</NavLink>
                 </div>
             </nav>
             {/* <NavLink to="/quiz/id"></NavLink> */}
