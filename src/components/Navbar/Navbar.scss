@@ -43,12 +43,13 @@ a {
 //     transition: 0.5s;
 // }
 @media screen and (max-width: 992px) {
+    .container {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
-}
-
-@media screen and (max-width: 576px) {
     .icon {
         display: block;
         transition: 0.3s;
@@ -77,4 +78,7 @@ a {
     .d__block {
         display: flex;
     }
+}
+
+@media screen and (max-width: 576px) {
 }

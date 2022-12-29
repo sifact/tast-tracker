@@ -13,7 +13,7 @@ const CompletedTasks = () => {
         queryKey: ["completedTasks", user?.email],
         queryFn: async () => {
             const res = await fetch(
-                `http://localhost:5000/myTasks/${user?.email}`
+                `https://server-jet-seven.vercel.app/myTasks/${user?.email}`
             );
             const data = await res.json();
             return data;
@@ -21,7 +21,7 @@ const CompletedTasks = () => {
     });
 
     return (
-        <div className="myTasks-section">
+        <div className="myTasks-section container">
             <div className="box-wrapper">
                 <h2 className="section-title">Completed Tasks</h2>
 

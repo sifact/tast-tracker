@@ -24,7 +24,7 @@ const EditTasks = () => {
         };
         console.log(task);
 
-        fetch(`http://localhost:5000/edit/${_id}`, {
+        fetch(`https://server-jet-seven.vercel.app/edit/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -45,7 +45,7 @@ const EditTasks = () => {
     };
 
     return (
-        <div className="form-wrapper">
+        <div className="form-wrapper container">
             <form onSubmit={handleSubmit} className="add-form">
                 <h2 className="section-title">Update your tasks</h2>
                 <input

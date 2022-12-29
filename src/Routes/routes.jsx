@@ -8,6 +8,7 @@ import MyTasks from "../components/MyTasks/MyTasks";
 import Login from "../components/Register/Login/Login";
 import Register from "../components/Register/Register/Register";
 import Main from "../Layouts/Main";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -21,17 +22,28 @@ const router = createBrowserRouter([
             },
             {
                 path: "/myTasks",
-                element: <MyTasks />,
+
+                element: (
+                    <PrivateRoute>
+                        <MyTasks />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/completedTasks",
-                element: <CompletedTasks />,
+                element: (
+                    <PrivateRoute>
+                        <CompletedTasks />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/edit/:id",
                 element: <EditTasks />,
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/edit/${params.id}`),
+                    fetch(
+                        `https://server-jet-seven.vercel.app/edit/${params.id}`
+                    ),
             },
             {
                 path: "/login",

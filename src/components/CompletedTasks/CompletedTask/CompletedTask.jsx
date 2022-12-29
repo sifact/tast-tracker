@@ -12,13 +12,16 @@ const CompletedTask = ({ task, refetch }) => {
         console.log(task);
 
         // mark as complete
-        fetch(`http://localhost:5000/markInComplete/${task._id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json",
-            },
-            // body: JSON.stringify(id),
-        })
+        fetch(
+            `https://server-jet-seven.vercel.app/markInComplete/${task._id}`,
+            {
+                method: "PUT",
+                headers: {
+                    "content-type": "application/json",
+                },
+                // body: JSON.stringify(id),
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -32,6 +35,26 @@ const CompletedTask = ({ task, refetch }) => {
             });
     };
 
+    const handleDelete = (id) => {
+        fetch(`https://server-jet-seven.vercel.app/delete/${id}`, {
+            method: "DELETE",
+            headers: {
+                "content-type": "application/json",
+            },
+            // body: JSON.stringify(id),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                refetch();
+                console.log(task);
+                if (data.acknowledged) {
+                    toast.success("Task Deleted");
+                } else {
+                    toast.error(data.message);
+                }
+            });
+    };
     const handleUpdate = (id) => {};
     return (
         <div className="box">
@@ -79,9 +102,11 @@ const CompletedTask = ({ task, refetch }) => {
                 </Link>
                 <br />
                 <AiOutlineDelete
+                    onClick={() => handleDelete(_id)}
                     style={{
                         cursor: "pointer",
                         fontSize: "22px",
+                        marginTop: "4px",
                         // color: "var(--danger)",
                     }}
                 />
