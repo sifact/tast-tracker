@@ -2,7 +2,7 @@
     height: calc(100vh - 148px);
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
 }
 
 .form-wrapper-input {
@@ -60,4 +60,10 @@ hr.solid {
 
 .signup-link {
     margin-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .register {
+        padding-top: 7rem;
+    }
 }

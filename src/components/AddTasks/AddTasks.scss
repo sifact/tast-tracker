@@ -45,3 +45,9 @@
 .btn:hover {
     background: var(--tertiary-lite);
 }
+
+@media screen and (max-width: 768px) {
+    .form-wrapper {
+        padding-top: 7rem;
+    }
+}

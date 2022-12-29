@@ -19,6 +19,7 @@ html {
     // --container-color: hsl(var(--hue), var(--sat), 98%);
     --container-color: rgb(255, 255, 255);
     --body-color: #f6f8f9;
+    --mini-nav: rgba(0, 0, 0, 0.05);
     // --primary-lite: hsl(var(--hue), var(--sat), 98%);
 }
 
@@ -33,7 +34,7 @@ html {
     --text-color: rgb(236, 229, 229);
     --container-color: var(--primary);
     background-color: var(--body-color);
-
+    --mini-nav: rgba(255, 255, 255, 0.05);
     color: var(--text-color);
 }
 

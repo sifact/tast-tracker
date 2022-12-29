@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import useLocalStorage from "use-local-storage";
 
 const Main = () => {
-    const [theme, setTheme] = useLocalStorage("theme" ? "light" : "dark");
+    const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
 
     const switchTheme = () => {
         const newTheme = theme === "light" ? "dark" : "light";

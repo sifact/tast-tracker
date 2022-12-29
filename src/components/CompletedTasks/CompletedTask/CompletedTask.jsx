@@ -55,7 +55,7 @@ const CompletedTask = ({ task, refetch }) => {
                 }
             });
     };
-    const handleUpdate = (id) => {};
+
     return (
         <div className="box">
             <div className="content">
@@ -66,8 +66,9 @@ const CompletedTask = ({ task, refetch }) => {
                 <span className="date">{date}</span>
             </div>
             <div>
-                {isHovering && (
+                {/* {isHovering && (
                     <MdDoneAll
+                        className="display"
                         onMouseOver={() => setIsHovering(false)}
                         style={{
                             cursor: "pointer",
@@ -75,27 +76,28 @@ const CompletedTask = ({ task, refetch }) => {
                             // color: "var(--tertiary)",
                         }}
                     />
-                )}
-                {!isHovering && (
-                    <MdRemoveDone
-                        onClick={() => {
-                            addInCompleted(task);
-                        }}
-                        onMouseOut={() => setIsHovering(true)}
-                        style={{
-                            cursor: "pointer",
-                            fontSize: "22px",
-                            // color: "var(--tertiary)",
-                        }}
-                    />
-                )}
+                )} */}
+
+                <MdRemoveDone
+                    onClick={() => {
+                        addInCompleted(task);
+                    }}
+                    // onMouseOut={() => setIsHovering(true)}
+                    style={{
+                        cursor: "pointer",
+                        fontSize: "22px",
+                        // color: "var(--tertiary)",
+                    }}
+                />
+
                 <br />
                 <Link to={`/edit/${_id}`}>
                     <AiFillEdit
-                        onClick={() => handleUpdate(_id)}
                         style={{
                             cursor: "pointer",
                             fontSize: "22px",
+                            marginTop: "5px",
+                            marginBottom: "5px",
                             // color: "var(--tertiary)",
                         }}
                     />

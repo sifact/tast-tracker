@@ -97,11 +97,7 @@ const Register = () => {
                     {/* <hr className="solid" /> */}
                     {/* <span className="hr-text">Or</span> */}
                 </form>
-                <div className="google-icon">
-                    <button className="btn btn-login">
-                        <FaGoogle />
-                    </button>
-                </div>
+
                 <p className="signup-link">
                     already sign up? <Link to="/login">Log in</Link>
                 </p>

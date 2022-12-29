@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdDoneAll, MdRemoveDone } from "react-icons/md";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AiFillEdit, AiOutlineDelete } from "react-icons/ai";
 
 const MyTask = ({ task, refetch }) => {
@@ -63,7 +63,7 @@ const MyTask = ({ task, refetch }) => {
             </div>
 
             <div>
-                {isHovering && (
+                {/* {isHovering && (
                     <MdRemoveDone
                         onMouseOver={() => setIsHovering(false)}
                         style={{
@@ -72,26 +72,28 @@ const MyTask = ({ task, refetch }) => {
                             // color: "var(--tertiary)",
                         }}
                     />
-                )}
-                {!isHovering && (
-                    <MdDoneAll
-                        onClick={() => addCompleted(task)}
-                        onMouseOut={() => setIsHovering(true)}
-                        style={{
-                            cursor: "pointer",
-                            fontSize: "22px",
-                            // color: "var(--tertiary)",
-                        }}
-                    />
-                )}
+                )} */}
+
+                <MdDoneAll
+                    onClick={() => addCompleted(task)}
+                    // onMouseOut={() => setIsHovering(true)}
+                    style={{
+                        cursor: "pointer",
+                        fontSize: "22px",
+                        // color: "var(--tertiary)",
+                    }}
+                />
+
                 <br />
                 <Link to={`/edit/${_id}`}>
+                    {/* state={{ from: location }} replace */}
                     <AiFillEdit
-                        onClick={() => handleUpdate(_id)}
                         style={{
                             cursor: "pointer",
                             fontSize: "22px",
                             // color: "var(--tertiary)",
+                            marginTop: "5px",
+                            marginBottom: "5px",
                         }}
                     />
                 </Link>
@@ -101,7 +103,7 @@ const MyTask = ({ task, refetch }) => {
                     style={{
                         cursor: "pointer",
                         fontSize: "22px",
-                        marginTop: "4px",
+                        // marginTop: "4px",
                         // color: "var(--danger)",
                     }}
                 />

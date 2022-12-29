@@ -9,6 +9,7 @@ const EditTasks = () => {
     const task = useLoaderData();
     const { title, _id, description, date } = task;
     console.log(task);
+    const from = location.state?.from?.pathname || "/";
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -36,7 +37,8 @@ const EditTasks = () => {
                 console.log(data);
                 if (data.acknowledged) {
                     toast.success("task Updated");
-                    navigate("/completedTasks");
+                    // navigate("/completedTasks");
+                    navigate(from, { replace: true });
                 } else {
                     toast.error(data.message);
                 }
