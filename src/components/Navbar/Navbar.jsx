@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Navbar = ({ switchTheme, theme }) => {
+    const { user, logOut } = useContext(AuthContext);
     const [open, setOpen] = useState(false);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {})
+            .catch((e) => console.log(e.message));
+    };
 
     return (
         <div className="nav__wrapper">
@@ -44,8 +52,14 @@ const Navbar = ({ switchTheme, theme }) => {
                             />
                         )}{" "}
                     </NavLink>
-                    <NavLink to="/login">Log in</NavLink>
-                    <NavLink to="/register">Sign up</NavLink>
+                    {user ? (
+                        <NavLink onClick={handleLogOut}>Log out</NavLink>
+                    ) : (
+                        <>
+                            <NavLink to="/login">Log in</NavLink>
+                            <NavLink to="/register">Sign up</NavLink>
+                        </>
+                    )}
                 </div>
             </nav>
             {/* <NavLink to="/quiz/id"></NavLink> */}

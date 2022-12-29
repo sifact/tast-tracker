@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-import "./AddTasks.scss";
 
-const AddTasks = () => {
+const EditTasks = () => {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const task = useLoaderData();
+    const { title, _id, description, date } = task;
+    console.log(task);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,27 +17,26 @@ const AddTasks = () => {
         const description = form.description.value;
         const date = form.date.value;
 
-        const tasks = {
-            email: user?.email,
+        const task = {
             title,
             description,
             date,
-            completed: false,
         };
-        console.log(tasks);
+        console.log(task);
 
-        fetch("http://localhost:5000/myTasks", {
-            method: "POST",
+        fetch(`http://localhost:5000/edit/${_id}`, {
+            method: "PUT",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(tasks),
+            body: JSON.stringify(task),
         })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 if (data.acknowledged) {
-                    toast.success("task added");
+                    toast.success("task Updated");
+                    navigate("/completedTasks");
                 } else {
                     toast.error(data.message);
                 }
@@ -44,12 +47,13 @@ const AddTasks = () => {
     return (
         <div className="form-wrapper">
             <form onSubmit={handleSubmit} className="add-form">
-                <h2 className="section-title">Add your tasks</h2>
+                <h2 className="section-title">Update your tasks</h2>
                 <input
                     className="form-input"
                     type="text"
                     name="task"
                     placeholder="title"
+                    defaultValue={title}
                 />
                 <textarea
                     className="form-input textarea"
@@ -58,6 +62,7 @@ const AddTasks = () => {
                     id=""
                     cols="30"
                     rows="5"
+                    defaultValue={description}
                 ></textarea>
 
                 <input
@@ -65,12 +70,13 @@ const AddTasks = () => {
                     type="text"
                     name="date"
                     placeholder="date"
+                    defaultValue={date}
                 />
 
-                <button className="btn">submit</button>
+                <button className="btn">Update</button>
             </form>
         </div>
     );
 };
 
-export default AddTasks;
+export default EditTasks;

@@ -44,13 +44,14 @@ html {
     --secondary: #3d4451;
     --primary-lite: #1d283a;
     --primary: #0f1729;
+    --danger: #f87171;
 }
 
 body {
     font-family: "Exo 2", sans-serif;
     // background: $info;
     // color: white;
-    min-height: 100vh;
+
     background-color: var(--body-color);
 }
 

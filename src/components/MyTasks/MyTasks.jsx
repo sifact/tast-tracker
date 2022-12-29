@@ -1,103 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./MyTasks.css";
-import { MdDoneAll, MdRemoveDone } from "react-icons/md";
+
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
+import MyTask from "./MyTask/MyTask";
 
 const MyTasks = () => {
-    const [isHovering, setIsHovering] = useState(true);
+    const { user } = useContext(AuthContext);
+
+    const { data: myTasks = [], refetch } = useQuery({
+        queryKey: ["myTasks", user?.email],
+        queryFn: async () => {
+            const res = await fetch(
+                `http://localhost:5000/myTasks/${user?.email}`
+            );
+            const data = await res.json();
+            return data;
+        },
+    });
 
     return (
         <div className="myTasks-section">
             <div className="box-wrapper">
                 <h2 className="section-title">Tasks not completed yet</h2>
-                <div className="box">
-                    <div className="content">
-                        <span className="title">Meeting</span>
-                        <br />
-                        <span className="description">special meeting</span>
-                        <br />
-                        <span className="date">30 Dec, 2022</span>
-                    </div>
-                    {isHovering && (
-                        <MdRemoveDone
-                            onMouseOver={() => setIsHovering(false)}
-                            style={{
-                                cursor: "pointer",
-                                fontSize: "30px",
-                                color: "var(--tertiary)",
-                            }}
-                        />
-                    )}
-                    {!isHovering && (
-                        <MdDoneAll
-                            onMouseOut={() => setIsHovering(true)}
-                            style={{
-                                cursor: "pointer",
-                                fontSize: "30px",
-                                color: "var(--tertiary)",
-                            }}
-                        />
-                    )}
-                </div>
-                <div className="box">
-                    <div className="content">
-                        <span className="title">Meeting</span>
-                        <br />
-                        <span className="description">special meeting</span>
-                        <br />
-                        <span className="date">30 Dec, 2022</span>
-                    </div>
-                    {isHovering && (
-                        <MdRemoveDone
-                            onMouseOver={() => setIsHovering(false)}
-                            style={{
-                                cursor: "pointer",
-                                fontSize: "30px",
-                                color: "var(--tertiary)",
-                            }}
-                        />
-                    )}
-                    {!isHovering && (
-                        <MdDoneAll
-                            onMouseOut={() => setIsHovering(true)}
-                            style={{
-                                cursor: "pointer",
-                                fontSize: "30px",
-                                color: "var(--tertiary)",
-                            }}
-                        />
-                    )}
-                </div>
-
-                <div className="box">
-                    <div className="content">
-                        <span className="title">Meeting</span>
-                        <br />
-                        <span className="description">special meeting</span>
-                        <br />
-                        <span className="date">30 Dec, 2022</span>
-                    </div>
-                    {isHovering && (
-                        <MdRemoveDone
-                            onMouseOver={() => setIsHovering(false)}
-                            style={{
-                                cursor: "pointer",
-                                fontSize: "30px",
-                                color: "var(--tertiary)",
-                            }}
-                        />
-                    )}
-                    {!isHovering && (
-                        <MdDoneAll
-                            onMouseOut={() => setIsHovering(true)}
-                            style={{
-                                cursor: "pointer",
-                                fontSize: "30px",
-                                color: "var(--tertiary)",
-                            }}
-                        />
-                    )}
-                </div>
+                {myTasks.map((task) => {
+                    if (task.completed === false) {
+                        return (
+                            <MyTask
+                                refetch={refetch}
+                                key={task._id}
+                                task={task}
+                            />
+                        );
+                    }
+                })}
             </div>
         </div>
     );
