@@ -3,12 +3,19 @@
 }
 
 .form-wrapper {
-    display: flex;
-
+    display: grid;
     justify-content: center;
+
     min-height: calc(100vh - 148px);
 }
 
+.form-wrapper-add-task {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    justify-content: center;
+    min-height: calc(100vh - 148px);
+}
 .add-form {
     width: 400px;
 }
@@ -45,7 +52,23 @@
 .btn:hover {
     background: var(--tertiary-lite);
 }
-
+.btn-secondary {
+    padding: 0.5rem 1rem;
+    color: var(--text-color-dark);
+    background: var(--mini-nav);
+    border-radius: 3px;
+    border: none;
+    font-family: "Exo 2", sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.active-work {
+    background: var(--tertiary-lite);
+}
+// .btn-secondary:hover {
+//     background: var(--tertiary);
+// }
 @media screen and (max-width: 768px) {
     .form-wrapper {
         padding-top: 7rem;

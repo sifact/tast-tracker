@@ -4,6 +4,8 @@ import { createBrowserRouter } from "react-router-dom";
 import AddTasks from "../components/AddTasks/AddTasks";
 import CompletedTasks from "../components/CompletedTasks/CompletedTasks";
 import EditTasks from "../components/EditTasks/EditTasks";
+import Media from "../components/Media/Media";
+import MyAlbum from "../components/MyAlbum/MyAlbum";
 import MyTasks from "../components/MyTasks/MyTasks";
 import Login from "../components/Register/Login/Login";
 import Register from "../components/Register/Register/Register";
@@ -34,6 +36,18 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <CompletedTasks />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/media",
+                element: <Media />,
+            },
+            {
+                path: "/myAlbum",
+                element: (
+                    <PrivateRoute>
+                        <MyAlbum />
                     </PrivateRoute>
                 ),
             },

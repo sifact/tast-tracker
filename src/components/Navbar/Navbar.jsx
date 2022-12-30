@@ -39,12 +39,17 @@ const Navbar = ({ switchTheme, theme }) => {
                     <NavLink to="/">Add Task</NavLink>
                     <NavLink to="/myTasks">My Tasks</NavLink>
                     <NavLink to="/completedTasks">Completed Tasks</NavLink>
-                    <NavLink onClick={switchTheme}>
+                    <NavLink to="/media">Media</NavLink>
+                    <NavLink to="/myAlbum">MyAlbum</NavLink>
+                    <NavLink>
                         {" "}
                         {theme === "dark" ? (
-                            <BsSunFill />
+                            <BsSunFill onClick={() => switchTheme()} />
                         ) : (
-                            <BsFillMoonStarsFill style={{ width: "20px" }} />
+                            <BsFillMoonStarsFill
+                                onClick={() => switchTheme()}
+                                style={{ width: "20px" }}
+                            />
                         )}{" "}
                     </NavLink>
                     {user ? (
