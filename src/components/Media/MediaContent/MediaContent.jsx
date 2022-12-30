@@ -11,6 +11,8 @@ const MediaContent = ({ item }) => {
     return (
         <div className="box-media">
             <h1>{user?.displayName}</h1>
+            <small className="media-date">{date}</small>
+            <h2>{title}</h2>
             <p>{description}</p>
             <img style={{ width: "100%" }} src={img} alt="" />
 

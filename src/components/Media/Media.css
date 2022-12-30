@@ -36,3 +36,21 @@
 section .comment {
     text-align: center;
 }
+
+.media-date {
+    margin-bottom: 1rem;
+}
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+    .box-wrapper-media {
+        grid-template-columns: 400px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .box-wrapper-media {
+        grid-template-columns: 1fr;
+    }
+}

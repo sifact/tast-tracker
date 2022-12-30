@@ -100,11 +100,12 @@ const AddTasks = () => {
         const date = form.date.value;
         const image = form.image.files[0];
 
+        console.log(image);
         const formData = new FormData();
         formData.append("image", image);
 
-        const url = `https://api.imgbb.com/1/upload?key=64e667daa534441b34c11968ad072ef6`;
-
+        const url =
+            "https://api.imgbb.com/1/upload?&key=5922940ce0698240cc925c3c4cd616ea";
         // get image url
         fetch(url, {
             method: "POST",
@@ -112,6 +113,7 @@ const AddTasks = () => {
         })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data.data.display_url);
                 const tasks = {
                     email: user?.email,
                     img: data.data.display_url,
