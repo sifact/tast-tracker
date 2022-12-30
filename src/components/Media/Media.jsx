@@ -7,7 +7,9 @@ const Media = () => {
     const { data: myAlbums = [], refetch } = useQuery({
         queryKey: ["myAlbums"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myAlbums`);
+            const res = await fetch(
+                `https://server-jet-seven.vercel.app/myAlbums`
+            );
             const data = await res.json();
             return data;
         },

@@ -13,7 +13,7 @@ const MyAlbum = () => {
         queryKey: ["myAlbums", user?.email],
         queryFn: async () => {
             const res = await fetch(
-                `http://localhost:5000/myAlbums/${user?.email}`
+                `https://server-jet-seven.vercel.app/myAlbums/${user?.email}`
             );
             const data = await res.json();
             return data;

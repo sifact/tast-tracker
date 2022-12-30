@@ -71,6 +71,12 @@
 // }
 @media screen and (max-width: 768px) {
     .form-wrapper {
-        padding-top: 7rem;
+        padding-top: 12rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .add-form {
+        width: 100%;
     }
 }
